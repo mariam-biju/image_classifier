@@ -1,61 +1,53 @@
 # 🌼 Flower Image Classifier
 
-A deep learning project that classifies flower images into one of five categories:
+A deep learning model that classifies images of flowers into five categories using **transfer learning** (MobileNetV2) and the `tf_flowers` dataset.
 
-Daisy, Dandelion, Roses, Sunflowers, and Tulips using transfer learning (MobileNetV2) and the tf_flowers dataset.
+---
 
-📌 Features
+## 🔍 Project Overview
 
-✅ Dataset from tensorflow_datasets
+- ✅ Pretrained MobileNetV2 (transfer learning)  
+- ✅ TensorFlow Datasets integration  
+- ✅ Image resizing, batching, and normalization  
+- ✅ Accuracy visualization and confusion matrix  
+- ✅ Image upload and prediction demo in Colab  
 
-✅ Preprocessing and batching using tf.data
+---
 
-✅ Trained with MobileNetV2 (transfer learning)
+## 🌸 Dataset
 
-✅ Evaluated using accuracy and confusion matrix
+- **Source**: [`tf_flowers`](https://www.tensorflow.org/datasets/catalog/tf_flowers) via TensorFlow Datasets  
+- **Classes**: `daisy`, `dandelion`, `roses`, `sunflowers`, `tulips`  
+- **Size**: ~3,600 labeled images  
 
-✅ Works seamlessly in Google Colab
+---
 
-📂 Dataset
+## 🧠 Model Architecture
 
-Source: TFDS - tf_flowers
-
-Contains over 3,600 flower images labeled into 5 classes.
-
-🧠 Model Architecture
-
-Base: MobileNetV2 (pretrained on ImageNet)
-
-Classifier Head:
-
-- Global Average Pooling
-
-- Dense Layer (128 ReLU)
-
-- Output Layer (5-class softmax)
-
-- Loss: Sparse Categorical Crossentropy
-
+- Base: `MobileNetV2` (pretrained on ImageNet)
+- Layers:
+  - GlobalAveragePooling2D  
+  - Dense(128, ReLU)  
+  - Dense(5, Softmax)
+- Loss: Sparse Categorical Crossentropy  
 - Optimizer: Adam
 
-📊 Evaluation
+---
 
-Achieved ~90%+ accuracy on validation set
+## 📊 Evaluation
 
-Confusion matrix reveals strong performance, with minor overlap between visually similar classes.
+- Validation accuracy: **~90%**  
+- Confusion matrix for detailed class performance  
+- Prediction confidence displayed for uploaded images
 
+---
 
-🖼️ Sample Prediction
+## 🖼️ Try It in Colab
 
+1. Open `05_predict_custom_image.ipynb`
+2. Upload your image (JPG/PNG)
+3. Model will display predicted flower type and confidence
 
-🌸 Prediction: Sunflower (Confidence: 97.5%)
-
-✅ Requirements
-
-- TensorFlow
-
-- TensorFlow Datasets
-
-- Matplotlib
-
-- scikit-learn (for confusion matrix)
+```python
+🌻 Predicted: Sunflower
+Confidence: 96.2%
